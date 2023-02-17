@@ -56,6 +56,7 @@
 		247047F4299FF09C0095960A /* ActionLabelViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247047F3299FF09C0095960A /* ActionLabelViewViewModel.swift */; };
 		247047F629A014E80095960A /* LibraryAlbumsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247047F529A014E80095960A /* LibraryAlbumsResponse.swift */; };
 		247047F829A01FEA0095960A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247047F729A01FEA0095960A /* Album.swift */; };
+		247047FA29A039970095960A /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247047F929A039970095960A /* SecretConstants.swift */; };
 		24E50B73299D431200510E25 /* PlaylistHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E50B72299D431200510E25 /* PlaylistHeaderCollectionReusableView.swift */; };
 		24E50B75299D44DF00510E25 /* PlaylistHeaderCollectionReusableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E50B74299D44DF00510E25 /* PlaylistHeaderCollectionReusableViewViewModel.swift */; };
 		24E50B77299D507200510E25 /* TitleHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E50B76299D507200510E25 /* TitleHeaderCollectionReusableView.swift */; };
@@ -133,6 +134,7 @@
 		247047F3299FF09C0095960A /* ActionLabelViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionLabelViewViewModel.swift; sourceTree = "<group>"; };
 		247047F529A014E80095960A /* LibraryAlbumsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAlbumsResponse.swift; sourceTree = "<group>"; };
 		247047F729A01FEA0095960A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		247047F929A039970095960A /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
 		24E50B72299D431200510E25 /* PlaylistHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		24E50B74299D44DF00510E25 /* PlaylistHeaderCollectionReusableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistHeaderCollectionReusableViewViewModel.swift; sourceTree = "<group>"; };
 		24E50B76299D507200510E25 /* TitleHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				2412B969299A2AFB00FA1B4A /* Constants.swift */,
+				247047F929A039970095960A /* SecretConstants.swift */,
 				2412B96B299A317200FA1B4A /* Extensions.swift */,
 				2412B92A2999593000FA1B4A /* AppDelegate.swift */,
 				2412B92C2999593000FA1B4A /* SceneDelegate.swift */,
@@ -230,15 +233,15 @@
 			isa = PBXGroup;
 			children = (
 				247047D8299ED0260095960A /* SearchResultCells */,
+				24FEE558299BB57400C12145 /* Browse */,
 				24E50B78299D56CD00510E25 /* AlbumTrackCollectionViewCell.swift */,
 				24E50B72299D431200510E25 /* PlaylistHeaderCollectionReusableView.swift */,
 				24E50B76299D507200510E25 /* TitleHeaderCollectionReusableView.swift */,
 				247047C8299EA9B50095960A /* CategoryCollectionViewCell.swift */,
-				24FEE558299BB57400C12145 /* Browse */,
-				2412B94129995A1500FA1B4A /* Storyboards */,
 				247047E4299F65370095960A /* PlayerControlsView.swift */,
 				247047ED299F8DE80095960A /* LibraryToggleView.swift */,
 				247047F1299FF0400095960A /* ActionLabelView.swift */,
+				2412B94129995A1500FA1B4A /* Storyboards */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				24FEE55C299BB5B800C12145 /* FeaturedPlaylistCollectionViewCell.swift in Sources */,
 				24FEE56E299C28DA00C12145 /* PlaylistDetailsResponse.swift in Sources */,
 				2412B96C299A317200FA1B4A /* Extensions.swift in Sources */,
+				247047FA29A039970095960A /* SecretConstants.swift in Sources */,
 				247047F829A01FEA0095960A /* Album.swift in Sources */,
 				2412B94629995B6000FA1B4A /* TabBarController.swift in Sources */,
 				247047EC299F8B0E0095960A /* LibraryAlbumsViewController.swift in Sources */,

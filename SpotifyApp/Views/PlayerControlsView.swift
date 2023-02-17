@@ -63,7 +63,7 @@ final class PlayerControlsView: UIView {
     }()
     
     weak var delegate: PlayerControlsViewDelegate?
-private var isPlaying = true
+    private var isPlaying = true
     
     //MARK: - Init
     override init(frame: CGRect) {

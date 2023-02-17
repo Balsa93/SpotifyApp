@@ -67,13 +67,6 @@ class AlbumViewController: UIViewController {
         present(actionSheet, animated: true)
     }
     
-//    @objc private func didTapShare() {
-//        guard let url = URL(string: playlist.external_urls["spotify"] ?? "") else { return }
-//        let vc = UIActivityViewController(activityItems: [url], applicationActivities: [])
-//        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-//        present(vc, animated: true)
-//    }
-    
     //MARK: - Private
     private func fetchAlbumDetails() {
         APICaller.shared.getAlbumDetails(for: album) { [weak self] result in

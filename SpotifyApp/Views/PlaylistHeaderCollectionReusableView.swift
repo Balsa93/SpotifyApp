@@ -16,34 +16,34 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
     /// Shared instance
     static let identifier = "PlaylistHeaderCollectionReusableView"
     
-        private let playlistImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(systemName: "photo")
-            imageView.contentMode = .scaleAspectFill
-            imageView.layer.masksToBounds = true
-            return imageView
-        }()
+    private let playlistImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "photo")
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
     
-        private let nameLabel: UILabel = {
-            let label = UILabel()
-            label.font = .systemFont(ofSize: 22, weight: .semibold)
-            return label
-        }()
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 22, weight: .semibold)
+        return label
+    }()
     
-        private let descriptionLabel: UILabel = {
-            let label = UILabel()
-            label.textColor = .secondaryLabel
-            label.font = .systemFont(ofSize: 18, weight: .regular)
-            label.numberOfLines = 0
-            return label
-        }()
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.numberOfLines = 0
+        return label
+    }()
     
-        private let ownerLabel: UILabel = {
-            let label = UILabel()
-            label.textColor = .secondaryLabel
-            label.font = .systemFont(ofSize: 18, weight: .light)
-            return label
-        }()
+    private let ownerLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 18, weight: .light)
+        return label
+    }()
     
     private let playAllButton: UIButton = {
         let button = UIButton()

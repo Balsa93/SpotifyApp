@@ -27,8 +27,8 @@ class ActionLabelView: UIView {
     }()
     
     weak var delegate: ActionLabelViewDelegate?
-
- //MARK: - Init
+    
+    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true

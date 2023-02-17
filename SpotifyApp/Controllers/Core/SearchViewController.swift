@@ -99,7 +99,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 //MARK: - SearchController
 extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate, SearchResultsViewControllerDelegate {
-   func updateSearchResults(for searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         
     }
     

@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 
 class SearchResultDefaultTableViewCell: UITableViewCell {
-static let identifier = "SearchResultDefaultTableViewCell"
+    static let identifier = "SearchResultDefaultTableViewCell"
     
     private let label: UILabel = {
         let label = UILabel()

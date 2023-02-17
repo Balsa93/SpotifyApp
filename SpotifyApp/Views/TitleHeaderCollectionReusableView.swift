@@ -8,7 +8,7 @@
 import UIKit
 
 class TitleHeaderCollectionReusableView: UICollectionReusableView {
-        /// Shared instance
+    /// Shared instance
     static let identifier = "TitleHeaderCollectionReusableView"
     
     private let titleLabel: UILabel = {
