@@ -51,6 +51,8 @@ class HomeViewController: UIViewController {
         setUpSettingsButton()
         //        setUpSpinner()
         fetchData()
+        
+        addLongTapGesture()
     }
     
     override func viewDidLayoutSubviews() {
@@ -68,7 +70,38 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc private func didLongPress(_ gesture: UILongPressGestureRecognizer) {
+        guard gesture.state == .began else { return }
+        let touchPoint = gesture.location(in: collectionView)
+        guard let indexPath = collectionView?.indexPathForItem(at: touchPoint), indexPath.section == 2 else { return }
+        let model = tracks[indexPath.row]
+        let actionSheet = UIAlertController(title: model.name, message: "Would you like to add this to a playlist?", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        actionSheet.addAction(UIAlertAction(title: "Add to Playlist", style: .default, handler: { [weak self] _ in
+            DispatchQueue.main.async {
+                let vc = LibraryPlaylistsViewController()
+                vc.selectionHandler = { playlist in
+                    
+                    APICaller.shared.addTrackToPlaylist(track: model, playlist: playlist) { success in
+                        print("Added to playlist: \(success)")
+                    }
+                }
+                vc.title = "Select Playlist"
+                
+                self?.present(UINavigationController(rootViewController: vc), animated: true)
+            }
+        }))
+        present(actionSheet, animated: true)
+    }
+    
     //MARK: - Private
+    private func addLongTapGesture() {
+        guard let collectionView = collectionView else { return }
+        collectionView.isUserInteractionEnabled = true
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
+        collectionView.addGestureRecognizer(gesture)
+    }
+    
     private func setUpSpinner() {
         view.addSubview(spinner)
         spinner.startAnimating()
@@ -216,6 +249,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+        HapticsManager.shared.vibrateForSelection()
         let section = sections[indexPath.section]
         switch section {
         case .newReleases:

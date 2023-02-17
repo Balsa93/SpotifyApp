@@ -33,6 +33,49 @@ class AlbumViewController: UIViewController {
         view.addSubview(collectionView)
         self.collectionView = collectionView
         
+        fetchAlbumDetails()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapActions))
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let collectionView = collectionView {
+            collectionView.frame = view.bounds
+        }
+    }
+    
+    // MARK: - @objc private
+    @objc private func didTapActions() {
+        let actionSheet = UIAlertController(title: album.name, message: "Actions", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        actionSheet.addAction(UIAlertAction(title: "Save Album", style: .default, handler: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            
+            APICaller.shared.saveAlbum(album: strongSelf.album) { success in
+                if success {
+                    
+                    HapticsManager.shared.vibrate(for: .success)
+                    NotificationCenter.default.post(name: .albumSavedNotification, object: nil)
+                } else {
+                    
+                    HapticsManager.shared.vibrate(for: .error)
+                    print("Failed to save Album")
+                }
+            }
+        }))
+        present(actionSheet, animated: true)
+    }
+    
+//    @objc private func didTapShare() {
+//        guard let url = URL(string: playlist.external_urls["spotify"] ?? "") else { return }
+//        let vc = UIActivityViewController(activityItems: [url], applicationActivities: [])
+//        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+//        present(vc, animated: true)
+//    }
+    
+    //MARK: - Private
+    private func fetchAlbumDetails() {
         APICaller.shared.getAlbumDetails(for: album) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -47,26 +90,8 @@ class AlbumViewController: UIViewController {
                 }
             }
         }
-        
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if let collectionView = collectionView {
-            collectionView.frame = view.bounds
-        }
-    }
-    
-    //MARK: - @objc private
-//    @objc private func didTapShare() {
-//        guard let url = URL(string: playlist.external_urls["spotify"] ?? "") else { return }
-//        let vc = UIActivityViewController(activityItems: [url], applicationActivities: [])
-//        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-//        present(vc, animated: true)
-//    }
-    
-    //MARK: - Private
     private func createCollectionView() -> UICollectionView {
         let layout = UICollectionViewCompositionalLayout(section: createSectionLayout())
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)

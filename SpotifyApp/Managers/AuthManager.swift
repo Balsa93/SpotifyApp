@@ -41,6 +41,13 @@ final class AuthManager {
     init() { }
     
     //MARK: - Public
+    public func SignOut(completion: (Bool) -> Void) {
+        UserDefaults.standard.setValue(nil, forKey: "access_token")
+        UserDefaults.standard.setValue(nil, forKey: "refresh_token")
+        UserDefaults.standard.setValue(nil, forKey: "expirationDate")
+        completion(true)
+    }
+    
     public func exchangeCodeForToken(code: String, completion: @escaping ((Bool) -> Void)) {
         // Get token
         guard let url = URL(string: Constants.tokenAPIUrl) else { return }
