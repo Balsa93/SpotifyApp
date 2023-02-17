@@ -65,6 +65,6 @@ static let identifier = "SearchResultSubtitleTableViewCell"
     public func configure(with viewModel: SearchResultSubtitleTableViewCellViewModel) {
         label.text = viewModel.title
         secondaryLabel.text = viewModel.subtitle
-        iconImageView.sd_setImage(with: viewModel.imageUrl)
+        iconImageView.sd_setImage(with: viewModel.imageUrl, placeholderImage: UIImage(systemName: "photo"))
     }
 }
