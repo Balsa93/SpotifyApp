@@ -232,10 +232,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             navigationController?.pushViewController(vc, animated: true)
         case .recommendedTracks:
             let track = tracks[indexPath.row]
-            let vc = AudioTrackViewController(audioTrack: track)
-            vc.title = track.name
-            vc.navigationItem.largeTitleDisplayMode = .never
-            navigationController?.pushViewController(vc, animated: true)
+            PlaybackPresenter.shared.startPlayback(from: self, track: track)
         }
     }
     
