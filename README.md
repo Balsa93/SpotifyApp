@@ -3,7 +3,7 @@
 
 Full featured Spotify App project written in Swift!
 
-##Features
+#Features
 - Written in Swift
 - MVVM
 - Dark Mode Support
